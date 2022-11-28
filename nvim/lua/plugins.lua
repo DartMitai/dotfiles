@@ -8,10 +8,10 @@ return require('packer').startup(function()
   use 'folke/tokyonight.nvim'
 
 -- Frendly Snippets
-  use "rafamadriz/friendly-snippets"
+  use 'rafamadriz/friendly-snippets'
 
 -- Icons
-  use('onsails/lspkind-nvim')
+  use 'onsails/lspkind-nvim'
 
 -- Autosave
   use {
@@ -26,29 +26,32 @@ return require('packer').startup(function()
   	tag = 'release',
 		config = function()
 			require('gitsigns').setup()
-	end }
+	  end
+  }
 
 --AUTOPAIRS--
   use {
-	"windwp/nvim-autopairs",
-  config = function()
-    require("nvim-autopairs").setup {}
-  end }
+	  'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup{}
+    end
+  }
 
-  -- Lsp lines
-  -- use({
-  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  --   config = function()
-  --     require('plugins/lsp_lines')
-  --   end,
-  -- })
+-- Lsp lines
+   use{
+   'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+     config = function()
+       require('plugins.lsp_lines')
+     end,
+   }
 
 -- LSP
   -- use {
   --   'neovim/nvim-lspconfig',
   --   config = function()
-  --     require('plugins/lspconfig')
-  -- end }
+  --     require('plugins.lspconfig')
+  --    end
+  -- }
 
 -- Notify
   use {
@@ -61,7 +64,7 @@ return require('packer').startup(function()
   -- Tabs top
   use {
     'akinsho/bufferline.nvim',
-    tag = "v3.*",
+    tag = 'v3.*',
     requires = 'nvim-tree/nvim-web-devicons',
     config = function()
       require('plugins.bufferline')
@@ -70,7 +73,7 @@ return require('packer').startup(function()
 
   -- Terminal
   use {
-    "akinsho/toggleterm.nvim", tag = '*',
+    'akinsho/toggleterm.nvim', tag = '*',
     config = function()
       require('plugins.toggleterm')
     end
@@ -107,7 +110,8 @@ return require('packer').startup(function()
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require'nvim-tree'.setup {}
+    config = function()
+      require('nvim-tree').setup{}
     end
   }
 
@@ -115,15 +119,16 @@ return require('packer').startup(function()
 -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ":TSUpdate",
+    run = ':TSUpdate',
     config = function()require'nvim-treesitter.configs'.setup {
-      ensure_installed = { "dart"},
+      ensure_installed = {'dart'},
       highlight = { enable = true },
       incremental_selection = { enable = true },
       textobjects = { enable = true },
       indent  = { enable  = true },
     }
-  end }
+    end
+  }
 
 -- Telescope
   use {
@@ -152,6 +157,12 @@ return require('packer').startup(function()
     end
   }
 
+-- Debug
+	use { 
+	  "rcarriga/nvim-dap-ui",
+	  requires = {'mfussenegger/nvim-dap'}
+	}
+
   -- Tabnine
   use {
     'tzachar/cmp-tabnine',
@@ -161,5 +172,4 @@ return require('packer').startup(function()
       require('plugins.tabnine')
     end
   }
-
 end)
