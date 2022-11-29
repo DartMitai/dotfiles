@@ -137,7 +137,7 @@ return require('packer').startup(function()
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-ui-select.nvim' },
     config = function()
-      require('telescope')
+      require('plugins.telescope')
     end
   }
 
@@ -160,7 +160,8 @@ return require('packer').startup(function()
 -- Debug
 	use { 
 	  "rcarriga/nvim-dap-ui",
-	  requires = {'mfussenegger/nvim-dap'}
+	  requires = {'mfussenegger/nvim-dap'},
+    require("dapui").setup()
 	}
 
   -- Tabnine
