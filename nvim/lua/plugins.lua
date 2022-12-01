@@ -158,10 +158,12 @@ return require('packer').startup(function()
   }
 
 -- Debug
-	use { 
+	use {
 	  "rcarriga/nvim-dap-ui",
 	  requires = {'mfussenegger/nvim-dap'},
-    require("dapui").setup()
+    config = function()
+      require('plugins.dapui')
+    end
 	}
 
   -- Tabnine

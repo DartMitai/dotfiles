@@ -1,5 +1,9 @@
 local notify = require('notify')
 require('flutter-tools').setup {
+  debugger = {
+    enabled = true,
+    run_via_dap = true,
+  },
   ui = {
     -- the border type to use for all floating windows, the same options/formats
     -- used for ":h nvim_open_win" e.g. "single" | "shadow" | {<table-of-eight-chars>}
@@ -9,7 +13,7 @@ require('flutter-tools').setup {
     -- depend on plugins like `nvim-notify` instead.
     notification_style = notify
   },
-  widget_guides = { 
+  widget_guides = {
     enabled = true
   },
   dev_tools = {
