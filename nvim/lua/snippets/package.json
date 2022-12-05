@@ -7,11 +7,11 @@
     "snippets": [
       {
         "language": "dart",
-        "path": "./snippets/dart.json"
+        "path": "../snippets/dart.json"
       },
       {
         "language": "flutter",
-        "path": "./snippets/frameworks/flutter.json"
+        "path": "../snippets/frameworks/flutter.json"
       }
     ]
   }
