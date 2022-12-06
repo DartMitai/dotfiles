@@ -38,3 +38,4 @@ user-dirs.dirs
 user-dirs.locale
 .gsd-keyboard.settings-ported
 nvim/plugin/
+nvim/lua/plugins/dap.lua

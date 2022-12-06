@@ -1,4 +1,13 @@
 local dapui = require('dapui')
+local exclusions = { 'dart' }
+local dap = require('dap')
+dap.listeners.after.event_initialized['dapui_config'] = function()
+  if vim.tbl_contains(exclusions, vim.bo.filetype) then return end
+  require('dapui').open()
+  vim.api.nvim_exec_autocmds('User', { pattern = 'DapStarted' })
+end
+dap.listeners.before.event_terminated['dapui_config'] = function() require('dapui').close() end
+dap.listeners.before.event_exited['dapui_config'] = function() require('dapui').close() end
 dapui.setup({
   icons = { expanded = "", collapsed = "", current_frame = "" },
   mappings = {
@@ -73,7 +82,7 @@ dapui.setup({
       close = { "q", "<Esc>" },
     },
   },
-  windows = { indent = 1 },
+  windows = { indent = 2 },
   render = {
     max_type_length = nil, -- Can be integer or nil.
     max_value_lines = 100, -- Can be integer or nil.

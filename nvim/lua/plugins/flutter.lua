@@ -3,6 +3,7 @@ require('flutter-tools').setup {
   debugger = {
     enabled = true,
     run_via_dap = true,
+    exception_breakpoints = {},
   },
   ui = {
     -- the border type to use for all floating windows, the same options/formats
