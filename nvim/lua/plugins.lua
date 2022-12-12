@@ -20,15 +20,6 @@ return require('packer').startup(function()
   		require('plugins.auto-save')
   end }
 
--- Git
-  use {
-  	'lewis6991/gitsigns.nvim',
-  	tag = 'release',
-		config = function()
-			require('gitsigns').setup()
-	  end
-  }
-
 --AUTOPAIRS--
   use {
 	  'windwp/nvim-autopairs',
@@ -109,9 +100,12 @@ return require('packer').startup(function()
 -- Files Manager
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+    },
+    tag = 'nightly',
     config = function()
-      require('nvim-tree').setup{}
+      require('plugins.nvim-tree')
     end
   }
 
@@ -156,6 +150,26 @@ return require('packer').startup(function()
       require('plugins.cmp')
     end
   }
+
+  -- Git
+  use {
+    'lewis6991/gitsigns.nvim',
+    tag = 'release',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
+
+  use {
+    'kdheepak/lazygit.nvim',
+    config = function()
+      require('lazygit').setup()
+    end
+  }
+  -- Future
+  -- use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
+  --   require('git-conflict').setup()
+  -- end }
 
 -- Debug
 	use {
