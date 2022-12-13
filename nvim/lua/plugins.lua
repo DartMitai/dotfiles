@@ -114,13 +114,8 @@ return require('packer').startup(function()
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = function()require'nvim-treesitter.configs'.setup {
-      ensure_installed = {'dart'},
-      highlight = { enable = true },
-      incremental_selection = { enable = true },
-      textobjects = { enable = true },
-      indent  = { enable  = true },
-    }
+    config = function()
+      require('plugins.treesitter')
     end
   }
 
@@ -159,13 +154,7 @@ return require('packer').startup(function()
       require('gitsigns').setup()
     end
   }
-
-  use {
-    'kdheepak/lazygit.nvim',
-    config = function()
-      require('lazygit').setup()
-    end
-  }
+  
   -- Future
   -- use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
   --   require('git-conflict').setup()

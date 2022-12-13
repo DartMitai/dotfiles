@@ -1,6 +1,6 @@
 require("nvim-tree").setup({
   filters = {
-    custom = { '.git', '.idea', '.dart_tool' },
+    custom = { '.idea', '.dart_tool', '.packages', 'pubspec.lock', },
   },
   diagnostics = {
     enable = true,
