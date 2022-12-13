@@ -21,3 +21,6 @@ map('n', 'bf', '<cmd>lua vim.lsp.buf.format()<CR>', default_opts)
 
 -- Flutter commands
 map('n', 'tf', ':Telescope flutter commands<CR>', default_opts)
+
+-- LazyGit
+map('n', 'lg', ':lua _LAZYGIT_TOGGLE()<CR>', default_opts)
