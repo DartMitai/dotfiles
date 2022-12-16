@@ -34,7 +34,7 @@ require('flutter-tools').setup {
   settings = {
     showTodos = true,
     completeFunctionCalls = true,
-    analysisExcludedFolders = { "<path-to-flutter-sdk-packages>" },
+    analysisExcludedFolders = { ".dart_tool", },
     renameFilesWithClasses = "prompt", -- "always"
     enableSnippets = false,
   }

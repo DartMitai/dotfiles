@@ -1,13 +1,4 @@
 local dapui = require('dapui')
-local exclusions = { 'dart' }
-local dap = require('dap')
-dap.listeners.after.event_initialized['dapui_config'] = function()
-  if vim.tbl_contains(exclusions, vim.bo.filetype) then return end
-  require('dapui').open()
-  vim.api.nvim_exec_autocmds('User', { pattern = 'DapStarted' })
-end
-dap.listeners.before.event_terminated['dapui_config'] = function() require('dapui').close() end
-dap.listeners.before.event_exited['dapui_config'] = function() require('dapui').close() end
 dapui.setup({
   icons = { expanded = "", collapsed = "", current_frame = "" },
   mappings = {
@@ -88,3 +79,13 @@ dapui.setup({
     max_value_lines = 100, -- Can be integer or nil.
   }
 })
+local exclusions = { 'dart' }
+local dap = require('dap')
+dap.listeners.after.event_initialized['dapui_config'] = function()
+  if vim.tbl_contains(exclusions, vim.bo.filetype) then return end
+  require('dapui').open()
+  vim.api.nvim_exec_autocmds('User', { pattern = 'DapStarted' })
+end
+dap.listeners.before.event_terminated['dapui_config'] = function() require('dapui').close() end
+dap.listeners.before.event_exited['dapui_config'] = function() require('dapui').close() end
+

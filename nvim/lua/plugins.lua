@@ -4,7 +4,7 @@ return require('packer').startup(function()
 -- Packer сам себя
   use 'wbthomason/packer.nvim'
 
-  -- Color Theme
+-- Color Theme
   use 'folke/tokyonight.nvim'
 
 -- Frendly Snippets
@@ -18,7 +18,8 @@ return require('packer').startup(function()
   	'Pocco81/auto-save.nvim',
   	config = function()
   		require('plugins.auto-save')
-  end }
+    end 
+  }
 
 --AUTOPAIRS--
   use {
@@ -52,7 +53,7 @@ return require('packer').startup(function()
     end
   }
 
-  -- Tabs top
+-- Tabs top
   use {
     'akinsho/bufferline.nvim',
     tag = 'v3.*',
@@ -62,7 +63,7 @@ return require('packer').startup(function()
     end
   }
 
-  -- Terminal
+-- Terminal
   use {
     'akinsho/toggleterm.nvim', tag = '*',
     config = function()
@@ -130,7 +131,7 @@ return require('packer').startup(function()
     end
   }
 
-  -- NVIM-CMP
+-- NVIM-CMP
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -146,21 +147,25 @@ return require('packer').startup(function()
     end
   }
 
-  -- Git
+-- Git
   use {
     'lewis6991/gitsigns.nvim',
-    tag = 'release',
     config = function()
       require('gitsigns').setup()
     end
   }
   
-  -- Future
+-- Future
   -- use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
   --   require('git-conflict').setup()
   -- end }
 
 -- Debug
+  use {
+    'mfussenegger/nvim-dap',
+    config = require('plugins.dap')
+  }
+
 	use {
 	  "rcarriga/nvim-dap-ui",
 	  requires = {'mfussenegger/nvim-dap'},
@@ -169,7 +174,7 @@ return require('packer').startup(function()
     end
 	}
 
-  -- Tabnine
+-- Tabnine
   use {
     'tzachar/cmp-tabnine',
     run = './install.sh',

@@ -7,7 +7,6 @@ g.loaded_netrw = 1              -- disable netrw at the very start
 g.loaded_netrwPlugin = 1
 
 opt.colorcolumn = '80'          -- Разделитель на 80 символов
-opt.cursorline = true           -- Подсветка строки с курсором
 opt.number = true               -- Включаем нумерацию строк
 opt.so = 999                    -- Курсор всегда в центре экрана
 opt.undofile = true             -- Возможность отката назад
