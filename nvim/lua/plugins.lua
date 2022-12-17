@@ -154,7 +154,7 @@ return require('packer').startup(function()
       require('gitsigns').setup()
     end
   }
-  
+
 -- Future
   -- use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
   --   require('git-conflict').setup()
@@ -165,14 +165,6 @@ return require('packer').startup(function()
     'mfussenegger/nvim-dap',
     config = require('plugins.dap')
   }
-
-	use {
-	  "rcarriga/nvim-dap-ui",
-	  requires = {'mfussenegger/nvim-dap'},
-    config = function()
-      require('plugins.dapui')
-    end
-	}
 
 -- Tabnine
   use {

@@ -24,20 +24,3 @@ map('n', 'tf', ':Telescope flutter commands<CR>', default_opts)
 
 -- LazyGit
 map('n', 'gu', ':lua _GIT_UI()<CR>', default_opts)
-
--- DapUi
-vim.keymap.set("n", "<F8>", function()
-  require("dapui").eval()
-end)
-vim.keymap.set("n", "<F9>", function()
-  require("dap").continue()
-end)
-vim.keymap.set("n", "<F10>", function()
-  require("dap").step_over { granularity = { not_used = true } }
-end)
-vim.keymap.set("n", "<F11>", function()
-  require("dap").step_into { granularity = { not_used = true } }
-end)
-vim.keymap.set("n", "<F12>", function()
-  require("dap").step_out { granularity = { not_used = true } }
-end)
