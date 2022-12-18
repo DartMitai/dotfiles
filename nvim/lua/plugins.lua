@@ -1,5 +1,13 @@
-vim.cmd [[packadd packer.nvim]]
-return require('packer').startup(function()
+-- Install packer
+local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local is_bootstrap = false
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  is_bootstrap = true
+  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+  vim.cmd [[packadd packer.nvim]]
+end
+
+require('packer').startup(function(use)
 
 -- Packer сам себя
   use 'wbthomason/packer.nvim'
@@ -163,7 +171,17 @@ return require('packer').startup(function()
 -- Debug
   use {
     'mfussenegger/nvim-dap',
-    config = require('plugins.dap')
+    config = function()
+      require('plugins.dap')
+    end
+  }
+
+  use {
+    "rcarriga/nvim-dap-ui",
+    after = 'nvim-dap',
+    config = function()
+      require("plugins.dapui")
+    end,
   }
 
 -- Tabnine
