@@ -1,13 +1,71 @@
--- Keybindings
-local map = vim.api.nvim_set_keymap
-local opts = { silent = true, noremap = true }
+local dap = require("dap")
+local ui = require("dapui")
 
-map('n', '<F8>', ":lua require'dap'.toggle_breakpoint()<cr>", opts)
-map('n', '<F6>', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
-map('n', '<F7>', ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>", opts)
-map('n', '<F5>', ":lua require'dap'.continue()<cr>", opts)
-map('n', '<F10>', ":lua require'dap'.step_over()<cr>", opts)
-map('n', '<F11>', ":lua require'dap'.step_into()<cr>", opts)
-map('n', '<F12>', ":lua require'dap'.step_out()<cr>", opts)
-map('n', 'dr', ":lua require'dap'.repl.open()<cr>", opts)
-map('n', 'dl', ":lua require'dap'.run_last()<cr>", opts)
+vim.fn.sign_define('DapBreakpoint', { text = 'ﴫ' })
+
+-- Start debugging session
+vim.keymap.set("n", "<F3>", function()
+  dap.continue()
+  ui.toggle({})
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false) -- Spaces buffers evenly
+end)
+
+-- Set breakpoints, get variable values, step into/out of functions, etc.
+vim.keymap.set("n", "<F4>", require("dap.ui.widgets").hover)
+vim.keymap.set("n", "<F5>", dap.continue)
+vim.keymap.set("n", "<F6>", dap.toggle_breakpoint)
+vim.keymap.set("n", "<F7>", dap.step_over)
+vim.keymap.set("n", "<F8>", dap.step_into)
+vim.keymap.set("n", "<F9>", dap.step_out)
+vim.keymap.set("n", "<F10>", function()
+  dap.clear_breakpoints()
+end)
+
+vim.keymap.set("n", "<F11>", function()
+  dap.clear_breakpoints()
+  ui.toggle({})
+  dap.terminate()
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false)
+end)
+
+ui.setup({
+  icons = { expanded = "", collapsed = "" },
+  mappings = {
+    expand = { "<CR>", "<2-LeftMouse>" },
+    open = "o",
+    remove = "d",
+    edit = "e",
+    repl = "r",
+    toggle = "t",
+  },
+  expand_lines = vim.fn.has("nvim-0.7"),
+  layouts = {
+    {
+      elements = {
+        "scopes",
+      },
+      size = 0.3,
+      position = "right"
+    },
+    {
+      elements = {
+        "repl",
+        "breakpoints"
+      },
+      size = 0.3,
+      position = "bottom",
+    },
+  },
+  floating = {
+    max_height = nil,
+    max_width = nil,
+    border = "single",
+    mappings = {
+      close = { "q", "<Esc>" },
+    },
+  },
+  windows = { indent = 1 },
+  render = {
+    max_type_length = nil,
+  },
+})

@@ -33,3 +33,8 @@ vim.cmd([[
   syntax enable
 ]])
 
+-- Neovide
+opt.guifont = 'JetBrainsMono_Nerd_Font_Mono:h13'
+g.neovide_transparency = 1
+g.neovide_remember_window_size = 'v:true'
+g.neovide_cursor_animation_length = 0

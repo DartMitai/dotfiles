@@ -168,19 +168,12 @@ require('packer').startup(function(use)
   --   require('git-conflict').setup()
   -- end }
 
--- Debug
-  use {
-    'mfussenegger/nvim-dap',
-    config = function()
-      require('plugins.dap')
-    end
-  }
 
   use {
     "rcarriga/nvim-dap-ui",
-    after = 'nvim-dap',
+    requires = { "mfussenegger/nvim-dap" },
     config = function()
-      require("plugins.dapui")
+      require('plugins.dap')
     end,
   }
 
