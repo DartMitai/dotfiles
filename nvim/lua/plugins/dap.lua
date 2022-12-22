@@ -1,6 +1,8 @@
 local dap = require("dap")
 local ui = require("dapui")
 
+dap.set_log_level("TRACE")
+
 vim.fn.sign_define('DapBreakpoint', { text = 'ﴫ' })
 
 -- Start debugging session
