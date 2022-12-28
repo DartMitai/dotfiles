@@ -1,13 +1,6 @@
 env:
   TERM: alacritty
 
-window:
-  # Startup Mode (changes require restart)
-  startup_mode:
-    - Windowed
-  #   - Maximized
-  #   - Fullscreen
-
 # Font configuration
 font:
   normal:
@@ -70,7 +63,11 @@ colors:
 
 window:
   opacity: 0.7
-  decorations: None
+  decorations: none
+  startup_mode:
+    'Windowed'
+    # 'Maximized'
+    # 'Fullscreen'
 
 # Bell
 # The bell is rung every time the BEL control character is received.
@@ -88,12 +85,12 @@ bell:
   #   - EaseOutExpo
   #   - EaseOutCirc
   #   - Linear
-  animation: Ease
+  animation: EaseOut
 
 # Live config reload (changes require restart)
 live_config_reload: true
 
-# Shell
+# Default:
 shell:
   program: /usr/bin/fish
   args:

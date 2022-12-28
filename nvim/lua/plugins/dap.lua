@@ -6,14 +6,13 @@ dap.set_log_level("TRACE")
 vim.fn.sign_define('DapBreakpoint', { text = 'ﴫ' })
 
 -- Start debugging session
-vim.keymap.set("n", "<F3>", function()
+vim.keymap.set("n", "<F4>", function()
   dap.continue()
   ui.toggle({})
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false) -- Spaces buffers evenly
 end)
 
 -- Set breakpoints, get variable values, step into/out of functions, etc.
-vim.keymap.set("n", "<F4>", require("dap.ui.widgets").hover)
 vim.keymap.set("n", "<F5>", dap.continue)
 vim.keymap.set("n", "<F6>", dap.toggle_breakpoint)
 vim.keymap.set("n", "<F7>", dap.step_over)
@@ -54,7 +53,7 @@ ui.setup({
         "repl",
         "breakpoints"
       },
-      size = 0.3,
+      size = 0.2,
       position = "bottom",
     },
   },
