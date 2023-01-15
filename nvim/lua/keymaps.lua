@@ -14,7 +14,10 @@ map('n', '<F2>', ':NvimTreeRefresh<CR>:NvimTreeFocus<CR>', default_opts)
 map('n', '<C-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', default_opts)
 
 -- Сode defenition
-map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', default_opts)
+map('n', '<C-d>', '<cmd>lua vim.lsp.buf.definition()<CR>', default_opts)
+
+-- Signature help
+map('n', '<C-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', default_opts)
 
 -- Formating current bufer:
 map('n', 'bf', '<cmd>lua vim.lsp.buf.format()<CR>', default_opts)
@@ -24,3 +27,4 @@ map('n', 'tf', ':Telescope flutter commands<CR>', default_opts)
 
 -- LazyGit
 map('n', 'gu', ':lua _GIT_UI()<CR>', default_opts)
+

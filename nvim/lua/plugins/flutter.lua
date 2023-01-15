@@ -21,8 +21,8 @@ require('flutter-tools').setup ({
   lsp = {
     color = { -- show the derived colours for dart variables
       enabled = true, -- whether or not to highlight color variables at all, only supported on flutter >= 2.10
-      background = true, -- highlight the background
-      virtual_text = false, -- show the highlight using virtual text
+      background = false, -- highlight the background
+      virtual_text = true, -- show the highlight using virtual text
     },
   },
   settings = {
