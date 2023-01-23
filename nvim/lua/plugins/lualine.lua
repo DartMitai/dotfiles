@@ -23,13 +23,13 @@ require('lualine').setup {
     lualine_c = {},
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },
-    lualine_z = { 'location' }
+    lualine_z = { 'os.date("%I:%M", os.time())' }
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
     lualine_c = { 'filename' },
-    lualine_x = { 'location' },
+    lualine_x = { 'os.date("%I:%M", os.time())' },
     lualine_y = {},
     lualine_z = {}
   },
@@ -38,3 +38,17 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+-- Turn off lualine inside nvim-tree
+vim.cmd [[
+  au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif
+]]
+
+-- Trigger rerender of status line every second for clock
+if _G.Statusline_timer == nil then
+  _G.Statusline_timer = vim.loop.new_timer()
+else
+  _G.Statusline_timer:stop()
+end
+_G.Statusline_timer:start(0, 25000, vim.schedule_wrap(
+  function() vim.api.nvim_command('redrawstatus') end))
