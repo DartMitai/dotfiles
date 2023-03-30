@@ -4,22 +4,22 @@ env:
 # Font configuration
 font:
   normal:
-    family: JetBrainsMono Nerd Font Mono
+    family: JetBrains Mono
     style: Regular
 
   # Bold font face
   bold:
-    family: JetBrainsMono Nerd Font Mono
+    family: JetBrains Mono
     style: Bold
 
   # Italic font face
   italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: JetBrains Mono
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: JetBrainsMono Mono
     style: Bold Italic
 
   # Point size
@@ -89,17 +89,6 @@ bell:
 
 # Live config reload (changes require restart)
 live_config_reload: true
-
-# Default:
-shell:
-  program: /usr/bin/fish
-  args:
-    - --login
-
-# Startup directory
-# Directory the shell is started in. If this is unset, or `None`, the working
-# directory of the parent process will be used.
-working_directory: /home/mitai/apps/
 
 key_bindings:
   - { key: Paste, action: Paste }

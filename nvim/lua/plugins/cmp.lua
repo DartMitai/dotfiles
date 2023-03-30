@@ -2,7 +2,7 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 
-require("luasnip/loaders/from_vscode").lazy_load{ paths = {"/home/mitai/.config/nvim/lua/snippets"} }
+require("luasnip/loaders/from_vscode").lazy_load { paths = { "/home/mitai/.config/nvim/lua/snippets" } }
 require("luasnip").filetype_extend("dart", { "flutter" })
 
 local source_mapping = {
@@ -37,7 +37,8 @@ cmp.setup {
     end
   },
   snippet = {
-    expand = function(args) luasnip.lsp_expand(args.body)
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
     end
   },
   window = {
@@ -50,8 +51,8 @@ cmp.setup {
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    
   }),
+
   sources = cmp.config.sources {
     { name = 'nvim_lsp' },
     {
@@ -67,7 +68,6 @@ cmp.setup {
   experimental = {
     -- New menu, better than the old menu
     native_menu = false,
-
     -- "ghost" completion
     ghost_text = true,
   },

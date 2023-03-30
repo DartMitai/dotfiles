@@ -23,13 +23,13 @@ require('lualine').setup {
     lualine_c = {},
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },
-    lualine_z = { 'os.date("%H:%M", os.time())' }
+    lualine_z = { 'os.date(" %H:%M")' }
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
     lualine_c = { 'filename' },
-    lualine_x = { 'os.date("%H:%M", os.time())' },
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {}
   },
