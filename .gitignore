@@ -28,7 +28,6 @@ systemd/
 TabNine/
 totem/
 yandex-browser-beta/
-background
 dleyna-renderer-service.conf
 gnome-initial-setup-done
 mimeapps.list
@@ -38,3 +37,4 @@ user-dirs.dirs
 user-dirs.locale
 .gsd-keyboard.settings-ported
 nvim/plugin/
+messages.json*

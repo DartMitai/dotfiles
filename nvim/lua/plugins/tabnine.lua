@@ -1,4 +1,4 @@
-local tabnine = require('cmp-tabnine')
+local tabnine = require('cmp_tabnine.config')
 
 tabnine:setup({
   max_lines = 1000,

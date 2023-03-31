@@ -15,7 +15,15 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
 
     -- Color Theme
-    'folke/tokyonight.nvim',
+    {
+        "folke/tokyonight.nvim",
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            require('tokyonight')
+            vim.cmd([[colorscheme tokyonight]])
+        end,
+    },
 
     -- Frendly Snippets
     'rafamadriz/friendly-snippets',
