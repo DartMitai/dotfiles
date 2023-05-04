@@ -19,7 +19,7 @@ font:
 
   # Bold italic font face
   bold_italic:
-    family: JetBrainsMono Mono
+    family: JetBrains Mono
     style: Bold Italic
 
   # Point size

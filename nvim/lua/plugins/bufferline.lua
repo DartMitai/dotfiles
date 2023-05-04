@@ -1,7 +1,7 @@
 require('bufferline').setup({
     options = {
         color_icons = true,
-        buffer_close_icon = "",
+        buffer_close_icon = "",
         close_command = "bdelete! %d",
         close_icon = "",
         indicator = {
