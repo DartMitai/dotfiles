@@ -43,7 +43,7 @@ require('lazy').setup({
     {
         'windwp/nvim-autopairs',
         config = function()
-            require('nvim-autopairs')
+            require('plugins.nvim-autopairs')
         end
     },
 
@@ -165,5 +165,9 @@ require('lazy').setup({
         config = function()
             require('plugins.tabnine')
         end
-    }
+    },
+    -- Codeium
+    -- {
+    --     'Exafunction/codeium.vim'
+    -- }
 })

@@ -38,3 +38,8 @@ user-dirs.locale
 .gsd-keyboard.settings-ported
 nvim/plugin/
 messages.json*
+fish/fish_variables
+fish
+yandex-browser
+xdg-terminals.list
+hypr
