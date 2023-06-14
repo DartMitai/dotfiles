@@ -44,6 +44,7 @@
       "switch ($1) {",
       "  case $2:",
       "    $0",
+      "    break;",
       "  default:",
       "}"
     ]

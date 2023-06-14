@@ -157,15 +157,6 @@ require('lazy').setup({
         end
     },
 
-    -- Tabnine
-    {
-        'tzachar/cmp-tabnine',
-        build = './install.sh',
-        dependencies = 'hrsh7th/nvim-cmp',
-        config = function()
-            require('plugins.tabnine')
-        end
-    },
     -- Codeium
     -- {
     --     'Exafunction/codeium.vim'
