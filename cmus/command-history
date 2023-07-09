@@ -1,0 +1,12 @@
+f
+set start_view=playlist
+set resume=true
+set output_plugin=pulse
+colorscheme dracula
+colorscheme dravula
+pl-rename coding
+set altformat_trackwin= %F
+set altformat_playlist= %F
+set altformat_title= %F
+set altformat_title=%F
+colorscheme Dracula
