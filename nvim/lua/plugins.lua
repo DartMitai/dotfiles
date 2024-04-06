@@ -136,12 +136,15 @@ require('lazy').setup({
     --Dap-Ui
     {
         'rcarriga/nvim-dap-ui',
-        dependencies = { 'mfussenegger/nvim-dap'},
+        dependencies = {
+            'mfussenegger/nvim-dap',
+            'nvim-neotest/nvim-nio'
+        },
         config = function()
             require('plugins.dap')
         end,
     },
-
+        
     -- NVIM-CMP
     {
         'hrsh7th/nvim-cmp',
