@@ -39,7 +39,7 @@ require('lazy').setup({
         end
     },
 
-    --AUTOPAIRS--
+    -- AutoPairs
     {
         'windwp/nvim-autopairs',
         config = function()
@@ -77,7 +77,11 @@ require('lazy').setup({
     -- Flutter/Dart
     {
         'akinsho/flutter-tools.nvim',
-        dependencies = 'nvim-lua/plenary.nvim',
+        lazy = false,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/ dressing.nvim',
+        },
         config = function()
             require('plugins.flutter')
         end
@@ -133,7 +137,7 @@ require('lazy').setup({
         end
     },
 
-    --Dap-Ui
+    -- Dap-Ui
     {
         'rcarriga/nvim-dap-ui',
         dependencies = {
