@@ -186,20 +186,7 @@ require('lazy').setup({
             fuzzy = { implementation = "prefer_rust_with_warning" },
 
             -- snippets = { preset = 'default' }
-            snippets = {
-            name = 'Snippets',
-            module = 'blink.cmp.sources.snippets',
-            opts = {
-            friendly_snippets = true,
-            search_paths = { vim.fn.stdpath('config') .. '/snippets' },
-            global_snippets = { 'all' },
-            extended_filetypes = {.dart},
-            ignored_filetypes = {},
-            get_filetype = function(context)
-                return vim.bo.filetype
-            end
-            }
-        },
+
         opts_extend = { "sources.default" }
     },
     
