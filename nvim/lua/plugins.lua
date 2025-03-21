@@ -25,9 +25,6 @@ require('lazy').setup({
         end,
     },
 
-    -- Frendly Snippets
-    'rafamadriz/friendly-snippets',
-
     -- Icons
     'onsails/lspkind-nvim',
 
@@ -36,15 +33,6 @@ require('lazy').setup({
         'Pocco81/auto-save.nvim',
         config = function()
             require('plugins.auto-save')
-        end
-    },
-
-    -- AutoPairs
-    {
-        'windwp/nvim-autopairs',
-        event = "InsertEnter",
-        config = function()
-            require('plugins.nvim-autopairs')
         end
     },
 
@@ -149,22 +137,95 @@ require('lazy').setup({
             require('plugins.dap')
         end,
     },
-        
-    -- NVIM-CMP
+
+    -- BLINK
     {
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-nvim-lsp-signature-help'
+        'saghen/blink.cmp',
+        -- optional: provides snippets for the snippet source
+        dependencies = 'rafamadriz/friendly-snippets',
+
+        -- use a release tag to download pre-built binaries
+        version = '*',
+
+        ---@module 'blink.cmp'
+        ---@type blink.cmp.Config
+        opts = {
+            -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept, C-n/C-p for up/down)
+            -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys for up/down)
+            -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+            --
+            -- All presets have the following mappings:
+            -- C-space: Open menu or open docs if already open
+            -- C-e: Hide menu
+            -- C-k: Toggle signature help
+            --
+            -- See the full "keymap" documentation for information on defining your own keymap.
+            keymap = { preset = 'default' },
+
+            appearance = {
+                -- Sets the fallback highlight groups to nvim-cmp's highlight groups
+                -- Useful for when your theme doesn't support blink.cmp
+                -- Will be removed in a future release
+                use_nvim_cmp_as_default = true,
+                -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+                -- Adjusts spacing to ensure icons are aligned
+                nerd_font_variant = 'mono'
+            },
+
+            -- Default list of enabled providers defined so that you can extend it
+            -- elsewhere in your config, without redefining it, due to `opts_extend`
+            sources = {
+                default = { 'lsp', 'path', 'snippets', 'buffer' },
+            },
+
+            -- Blink.cmp uses a Rust fuzzy matcher by default for typo resistance and significantly better performance
+            -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
+            -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
+            --
+            -- See the fuzzy documentation for more information
+            fuzzy = { implementation = "prefer_rust_with_warning" },
+
+            snippets = { preset = 'default' }
         },
-        config = function()
-            require('plugins.cmp')
-        end
+        opts_extend = { "sources.default" }
     },
+    
+    -- AUTOPAIRS
+    {
+        'saghen/blink.pairs',
+        version = '*', -- (recommended) only required with prebuilt binaries
+
+        -- download prebuilt binaries from github releases
+        dependencies = 'saghen/blink.download',
+
+        --- @module 'blink.pairs'
+        --- @type blink.pairs.Config
+        opts = {
+            mappings = {
+                enabled = true,
+                pairs = {
+                    ['('] = ')',
+                    ['['] = ']',
+                    ['{'] = '}',
+                    ['<'] = '>',
+                    ["'"] = { closing = "'", enter = false },
+                    ['"'] = { closing = '"', enter = false },
+                    ['`'] = { closing = '`', enter = false },
+                },
+            },
+            highlights = {
+                enabled = true,
+                groups = {
+                    'BlinkPairsOrange',
+                    'BlinkPairsPurple',
+                    'BlinkPairsBlue',
+                },
+                priority = 200,
+                ns = vim.api.nvim_create_namespace('blink.pairs'),
+            },
+            debug = false,
+        }
+    }
 
     -- Codeium
     -- {
