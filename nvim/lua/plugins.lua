@@ -47,7 +47,7 @@ require('lazy').setup({
     -- Tabs top
     {
         'akinsho/bufferline.nvim',
-        version = 'v3.*',
+        version = '*',
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = function()
             require('plugins.bufferline')
@@ -69,7 +69,6 @@ require('lazy').setup({
         lazy = false,
         dependencies = {
             'nvim-lua/plenary.nvim',
-            'stevearc/ dressing.nvim',
         },
         config = function()
             require('plugins.flutter')
@@ -145,7 +144,7 @@ require('lazy').setup({
         dependencies = 'rafamadriz/friendly-snippets',
 
         -- use a release tag to download pre-built binaries
-        version = '*',
+        version = '1.*',
 
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
@@ -187,7 +186,8 @@ require('lazy').setup({
 
             -- snippets = { preset = 'default' }
 
-        opts_extend = { "sources.default" }
+            opts_extend = { "sources.default" }
+        }
     },
     
     -- AUTOPAIRS
@@ -208,9 +208,6 @@ require('lazy').setup({
                     ['['] = ']',
                     ['{'] = '}',
                     ['<'] = '>',
-                    ["'"] = { closing = "'", enter = false },
-                    ['"'] = { closing = '"', enter = false },
-                    ['`'] = { closing = '`', enter = false },
                 },
             },
             highlights = {
