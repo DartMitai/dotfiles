@@ -1,7 +1,7 @@
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
+    theme = 'auto',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = {
@@ -22,7 +22,7 @@ require('lualine').setup {
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = {},
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
-    lualine_y = { 'progress' },
+    lualine_y = { 'os.date("!%H:%M", os.time())' },
     lualine_z = { }
   },
   inactive_sections = {
