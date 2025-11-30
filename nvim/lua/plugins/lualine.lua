@@ -22,7 +22,7 @@ require('lualine').setup {
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = {},
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
-    lualine_y = { 'os.date("!%H:%M", os.time())' },
+    lualine_y = { 'os.date("%H:%M", os.time())' },
     lualine_z = { }
   },
   inactive_sections = {
