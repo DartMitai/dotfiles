@@ -1,8 +1,8 @@
 set aaa_mode=all
 set altformat_current= %F 
 set altformat_playlist= %F%= %d %{?X!=0?%3X ?    }
-set altformat_title= %F
-set altformat_trackwin= %F
+set altformat_title=%F
+set altformat_trackwin= %F 
 set auto_expand_albums_follow=true
 set auto_expand_albums_search=true
 set auto_expand_albums_selcur=true
@@ -11,55 +11,55 @@ set auto_reshuffle=true
 set block_key_paste=true
 set buffer_seconds=10
 set color_cmdline_attr=default
-set color_cmdline_bg=default
-set color_cmdline_fg=231
+set color_cmdline_bg=235
+set color_cmdline_fg=208
 set color_cur_sel_attr=default
-set color_error=lightred
-set color_info=231
-set color_separator=blue
+set color_error=167
+set color_info=214
+set color_separator=245
 set color_statusline_attr=default
-set color_statusline_bg=default
-set color_statusline_fg=231
+set color_statusline_bg=236
+set color_statusline_fg=72
 set color_statusline_progress_attr=default
-set color_statusline_progress_bg=blue
-set color_statusline_progress_fg=white
+set color_statusline_progress_bg=234
+set color_statusline_progress_fg=72
 set color_titleline_attr=default
-set color_titleline_bg=lightgreen
-set color_titleline_fg=236
+set color_titleline_bg=245
+set color_titleline_fg=235
 set color_trackwin_album_attr=bold
 set color_trackwin_album_bg=default
 set color_trackwin_album_fg=default
 set color_win_attr=default
-set color_win_bg=default
-set color_win_cur=lightgreen
+set color_win_bg=235
+set color_win_cur=142
 set color_win_cur_attr=default
 set color_win_cur_sel_attr=default
-set color_win_cur_sel_bg=lightgreen
-set color_win_cur_sel_fg=16
-set color_win_dir=blue
-set color_win_fg=blue
+set color_win_cur_sel_bg=237
+set color_win_cur_sel_fg=142
+set color_win_dir=223
+set color_win_fg=223
 set color_win_inactive_cur_sel_attr=default
-set color_win_inactive_cur_sel_bg=default
-set color_win_inactive_cur_sel_fg=lightcyan
+set color_win_inactive_cur_sel_bg=235
+set color_win_inactive_cur_sel_fg=142
 set color_win_inactive_sel_attr=default
-set color_win_inactive_sel_bg=default
-set color_win_inactive_sel_fg=lightcyan
+set color_win_inactive_sel_bg=235
+set color_win_inactive_sel_fg=229
 set color_win_sel_attr=default
-set color_win_sel_bg=blue
-set color_win_sel_fg=236
+set color_win_sel_bg=237
+set color_win_sel_fg=229
 set color_win_title_attr=default
-set color_win_title_bg=default
-set color_win_title_fg=lightcyan
+set color_win_title_bg=239
+set color_win_title_fg=109
 set confirm_run=true
 set continue=true
 set continue_album=true
 set device=/dev/cdrom
 set display_artist_sort_name=false
-set dsp.alsa.device=default
+set dsp.alsa.device=
 set dsp.jack.resampling_quality=2
 set dsp.jack.server_name=
 set dsp.oss.device=
-set follow=true
+set follow=false
 set format_clipped_text=…
 set format_current= %a - %l%! - %n. %t%= %y 
 set format_heading_album=%a - %l%= %y %{duration}
@@ -77,16 +77,17 @@ set format_treewin_artist=%a
 set icecast_default_charset=ISO-8859-1
 set id3_default_charset=ISO-8859-1
 set ignore_duplicates=false
-set input.cdio.priority=50
 set input.cue.priority=50
+set input.ffmpeg.priority=30
 set input.flac.priority=50
+set input.mad.priority=55
 set input.modplug.priority=50
 set input.vorbis.priority=50
 set input.wav.priority=50
 set lib_add_filter=
 set lib_sort=albumartist date album discnumber tracknumber title filename play_count
-set mixer.alsa.channel=PCM
-set mixer.alsa.device=default
+set mixer.alsa.channel=
+set mixer.alsa.device=
 set mixer.oss.channel=PCM
 set mixer.oss.device=
 set mixer.pulse.restore_volume=1
@@ -114,14 +115,14 @@ set show_all_tracks=true
 set show_current_bitrate=false
 set show_hidden=false
 set show_playback_position=true
-set show_remaining_time=false
+set show_remaining_time=true
 set shuffle=off
 set skip_track_info=false
 set smart_artist_sort=true
 set softvol=false
 set softvol_state=0 0
 set sort_albums_by_name=false
-set start_view=playlist
+set start_view=tree
 set status_display_program=
 set stop_after_queue=false
 set time_show_leading_zero=true
@@ -190,13 +191,16 @@ bind common l seek +5
 bind common left seek -5
 bind common m toggle aaa_mode
 bind common mlb_click_bar player-pause
+bind common mlb_click_bar_right player-pause
 bind common mlb_click_selected win-activate
 bind common mouse_scroll_down win-down
 bind common mouse_scroll_down_bar seek -5
-bind common mouse_scroll_down_title right-view
+bind common mouse_scroll_down_bar_right vol -1%
+bind common mouse_scroll_down_title right-view -n
 bind common mouse_scroll_up win-up
 bind common mouse_scroll_up_bar seek +5
-bind common mouse_scroll_up_title left-view
+bind common mouse_scroll_up_bar_right vol +1%
+bind common mouse_scroll_up_title left-view -n
 bind common n search-next
 bind common o toggle play_sorted
 bind common p win-mv-after

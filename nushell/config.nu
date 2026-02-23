@@ -23,6 +23,8 @@ $env.config.buffer_editor = "nvim"
 # Убрать приветствие
 $env.config.show_banner = false
 
+$env.path ++= ["/usr/bin/bash"]
+
 $env.path ++= ["/home/mitai/dev/flutter/bin"]
 
 $env.ANDROID_HOME = '/home/mitai/dev/Android/sdk'

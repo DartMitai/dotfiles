@@ -6,7 +6,7 @@ local xplr = xplr -- The globally exposed configuration to be overridden.
 
 -- ### General Configuration --------------------------------------------------
 -- Type: boolean
-xplr.config.general.disable_debug_error_mode = false
+xplr.config.general.disable_debug_error_mode = true
 
 -- Set it to `true` if you want to enable mouse scrolling.
 --
@@ -28,8 +28,7 @@ xplr.config.general.read_only = false
 -- from yourself when you type recklessly.
 --
 -- Type: boolean
-xplr.config.general.enable_recover_mode = false
-
+xplr.config.general.enable_recover_mode = true 
 -- Set it to `true` if you want to hide all remaps in the help menu.
 --
 -- Type: boolean
@@ -112,9 +111,9 @@ xplr.config.general.logs.error.style = { fg = "Red" }
 -- * format: nullable string
 -- * style: [Style](https://xplr.dev/en/style)
 xplr.config.general.table.header.cols = {
-  { format = " index", style = {} },
+  { format = " ", style = {} },
   { format = "╭─── path", style = {} },
-  { format = "perm", style = {} },
+  { format = "", style = {} },
   { format = "size", style = {} },
   { format = "modified", style = {} },
 }
@@ -771,21 +770,19 @@ xplr.config.node_types.symlink.meta.icon = "§"
 --   * value: [Node Type](https://xplr.dev/en/node-type)
 --
 -- Example:
---
--- ```lua
--- xplr.config.node_types.mime_essence = {
---   application = {
+xplr.config.node_types.mime_essence = {
+  application = {
 --     -- application/*
 --     ["*"] = { meta = { icon = "a" } },
 --
 --     -- application/pdf
 --     pdf = { meta = { icon = "" }, style = { fg = "Blue" } },
 --
---     -- application/zip
---     zip = { meta = { icon = ""} },
---   },
--- }
--- ```
+--  application/zip
+    zip = { meta = { icon = ""} },
+  },
+}
+
 xplr.config.node_types.mime_essence = {}
 
 -- Metadata and style based on extension.
@@ -809,13 +806,9 @@ xplr.config.node_types.extension = {}
 --
 -- * key: string
 -- * value: [Node Type](https://xplr.dev/en/node-type)
---
--- Example:
---
--- ```lua
--- xplr.config.node_types.special["Cargo.toml"] = { meta = { icon = "" } }
--- xplr.config.node_types.special["Downloads"] = { meta = { icon = "" }, style = { fg = "Blue" } }
--- ```
+xplr.config.node_types.special["Cargo.toml"] = { meta = { icon = "" } }
+xplr.config.node_types.special["Downloads"] = { meta = { icon = "" }, style = { fg = "Blue" } }
+
 xplr.config.node_types.special = {}
 
 -- ### Layouts ----------------------------------------------------------------
@@ -3285,15 +3278,3 @@ return {
   on_mode_switch = {},
   on_layout_switch = {},
 }
-
--- ----------------------------------------------------------------------------
--- > Note:
--- >
--- > It's not recommended to copy the entire configuration, unless you want to
--- > freeze it and miss out on useful updates to the defaults.
--- >
--- > Instead, you can use this as a reference to overwrite only the parts you
--- > want to update.
--- >
--- > If you still want to copy the entire configuration, make sure to put your
--- > customization before the return statement.

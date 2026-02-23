@@ -21,3 +21,5 @@ $env.PROMPT_COMMAND_RIGHT = $env.PROMPT_COMMAND_RIGHT? | default {||
         (date now | date format '%H:%M')
     ])
 }
+
+$env.LANG = 'ru_RU.UTF-8'
