@@ -109,6 +109,7 @@ require('lazy').setup({
     -- Telescope
     {
         'nvim-telescope/telescope.nvim',
+        version = '*',
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-ui-select.nvim' },
@@ -159,7 +160,7 @@ require('lazy').setup({
             -- C-k: Toggle signature help
             --
             -- See the full "keymap" documentation for information on defining your own keymap.
-            keymap = { preset = 'default' },
+            keymap = { preset = 'enter' },
 
             appearance = {
                 -- Sets the fallback highlight groups to nvim-cmp's highlight groups
