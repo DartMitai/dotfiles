@@ -15,7 +15,7 @@
 #
 
 if $nu.is-login and $env.DISPLAY? == null and $env.XDG_VTNR? == "1" {
-  exec Hyprland
+  exec start-hyprland
 }
 
 $env.config.buffer_editor = "nvim"
