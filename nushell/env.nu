@@ -23,4 +23,4 @@ $env.PROMPT_COMMAND_RIGHT = $env.PROMPT_COMMAND_RIGHT? | default {||
 }
 
 $env.LANG = 'ru_RU.UTF-8'
-$env.SSH_AUTH_SOCK = $'($env.XDG_RUNTIME_DIR)/ssh-agent.socket'
+$env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent.socket"
