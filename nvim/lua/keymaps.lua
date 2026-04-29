@@ -16,8 +16,17 @@ map('n', '<C-a>', '<cmd>lua vim.lsp.buf.code_action()<CR>', default_opts)
 -- Сode defenition
 map('n', '<C-d>', '<cmd>lua vim.lsp.buf.definition()<CR>', default_opts)
 
--- Signature help
-map('n', '<C-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', default_opts)
+-- Сode diagnostic show
+map('n', '<C-s>', '<cmd>lua vim.diagnostic.open_float()<CR>', default_opts)
+
+-- Move to the previous diagnostics
+map('n', 'C-[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', default_opts)
+
+-- Move to the next diagnostics
+map('n', 'C-]', '<cmd>lua vim.diagnostic.goto_next()<CR>', default_opts)
+
+-- Rename all references
+map('n', '<C-r>', '<cmd>lua vim.lsp.buf.rename()<CR>', default_opts)
 
 -- Formating current bufer:
 map('n', 'bf', '<cmd>lua vim.lsp.buf.format()<CR>', default_opts)

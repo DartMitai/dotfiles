@@ -28,6 +28,9 @@ require('lazy').setup({
     -- Icons
     'onsails/lspkind-nvim',
 
+    -- Snippets
+    'rafamadriz/friendly-snippets',
+
     -- Autosave
     {
         'Pocco81/auto-save.nvim',
@@ -51,15 +54,6 @@ require('lazy').setup({
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = function()
             require('plugins.bufferline')
-        end
-    },
-
-    -- Terminal
-    {
-        'akinsho/toggleterm.nvim',
-        version = '*',
-        config = function()
-            require('plugins.toggleterm')
         end
     },
 
@@ -138,6 +132,14 @@ require('lazy').setup({
         end,
     },
 
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp",
+    },
+
     -- BLINK
     {
         'saghen/blink.cmp',
@@ -150,44 +152,22 @@ require('lazy').setup({
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
-            -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept, C-n/C-p for up/down)
-            -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys for up/down)
-            -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-            --
-            -- All presets have the following mappings:
-            -- C-space: Open menu or open docs if already open
-            -- C-e: Hide menu
-            -- C-k: Toggle signature help
-            --
-            -- See the full "keymap" documentation for information on defining your own keymap.
             keymap = { preset = 'enter' },
 
             appearance = {
-                -- Sets the fallback highlight groups to nvim-cmp's highlight groups
-                -- Useful for when your theme doesn't support blink.cmp
-                -- Will be removed in a future release
                 use_nvim_cmp_as_default = true,
-                -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-                -- Adjusts spacing to ensure icons are aligned
                 nerd_font_variant = 'mono'
             },
 
-            -- Default list of enabled providers defined so that you can extend it
-            -- elsewhere in your config, without redefining it, due to `opts_extend`
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer' },
             },
-
-            -- Blink.cmp uses a Rust fuzzy matcher by default for typo resistance and significantly better performance
-            -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-            -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-            --
-            -- See the fuzzy documentation for more information
             fuzzy = { implementation = "prefer_rust_with_warning" },
 
-            -- snippets = { preset = 'default' }
+            snippets = { preset = 'default' },
 
-            opts_extend = { "sources.default" }
+            -- Experimental signature help support
+            signature = { enabled = false },
         }
     },
     
@@ -222,7 +202,7 @@ require('lazy').setup({
                 ns = vim.api.nvim_create_namespace('blink.pairs'),
             },
             debug = false,
-        }
+        },
     }
 
     -- Codeium

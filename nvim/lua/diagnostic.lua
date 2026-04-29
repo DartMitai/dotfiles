@@ -10,22 +10,27 @@ map('n', 'td', '<cmd>Telescope diagnostics<CR>', default_opts)
 -- все ошибки/предупреждения, закомментируйте строку telescope и раскомментируйте это:
 -- map('n', '<leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>', default_opts)
 
--- Icons
-local signs = {
-  Error = "",
-  Warn = "",
-  Hint = "",
-  Info = "",
-}
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
 vim.diagnostic.config({
+  underline = true,
+  signs = {
+    active = true,
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN]  = "",
+      [vim.diagnostic.severity.HINT]  = "󰟃",
+      [vim.diagnostic.severity.INFO]  = "",
+    },
+  },
   virtual_text = false,
-  severity_sort = true,
   float = {
-    source = "always", -- Or "if_many"
+    border = "single",
+    format = function(diagnostic)
+      return string.format(
+        "%s (%s) [%s]",
+        diagnostic.message,
+        diagnostic.source,
+        diagnostic.code or diagnostic.user_data.lsp.code
+      )
+    end,
   },
 })

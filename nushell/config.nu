@@ -27,7 +27,9 @@ $env.path ++= ["/usr/bin/bash"]
 
 $env.path ++= ["/home/mitai/dev/flutter/bin"]
 
+$env.path ++= ["/home/mitai/.pub-cache/bin/"]
+
 $env.ANDROID_HOME = '/home/mitai/dev/Android/sdk'
 $env.CHROME_EXECUTABLE = '/opt/google/chrome/google-chrome'
 
-$env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent.socket"
+alias webcam = scrcpy --select-usb --video-source=camera --camera-facing=back --camera-size=1280x720 --orientation=flip0 --v4l2-sink=/dev/video0 --no-audio --no-window

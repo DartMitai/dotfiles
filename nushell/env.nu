@@ -16,11 +16,11 @@
 #
 # You can remove these comments if you want or leave
 # them for future reference.
-$env.PROMPT_COMMAND_RIGHT = $env.PROMPT_COMMAND_RIGHT? | default {||
-    let time_segment = ([
-        (date now | date format '%H:%M')
-    ])
-}
+#$env.PROMPT_COMMAND_RIGHT = $env.PROMPT_COMMAND_RIGHT? | default {||
+#    let time_segment = ([
+#        (date now | date format '%H:%M')
+#    ])
+#}
 
 $env.LANG = 'ru_RU.UTF-8'
 $env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent.socket"
