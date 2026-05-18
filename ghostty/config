@@ -5,3 +5,5 @@ background-opacity = 0.8
 theme = light:/usr/share/ghostty/themes/TokyoNight Day,dark:/usr/share/ghostty/themes/TokyoNight
 cursor-color = cell-background
 cursor-color = cell-foreground
+unfocused-split-opacity = 0.5
+clipboard-trim-trailing-spaces = true
