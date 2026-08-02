@@ -4,9 +4,9 @@ local menu = "hyprlauncher"
 local mainMod = "SUPER"
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 local closeWindow = hl.bind(mainMod .. " + C", hl.dsp.window.close())
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("command -v hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("wleave"))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
---hl.bind(mainMod .. " + F12", hl.dsp.exec_cmd(grim -g "$(slurp)" - | wl-copy))
+hl.bind(mainMod .. " + F12", hl.dsp.exec_cmd[[grim -g "$(slurp)" - | wl-copy]])
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))

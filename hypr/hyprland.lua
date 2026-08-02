@@ -9,19 +9,20 @@ hl.monitor({
 
 
 hl.on("hyprland.start", function ()
-  hl.exec_cmd("hyprpaper & hyprsunset & hypridle & udiskie")
+  hl.exec_cmd("hyprsunset & hypridle & udiskie")
   hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd("yandex-browser")
 end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "Hyprland")
+hl.env("GDK_BACKEND", "wayland,x11,*")
 
 hl.config({
 	input = {
     kb_layout = "us,ru",
-    kb_options = "grp:win_space_toggle",
+    kb_options = "grp:ctrl_space_toggle",
     follow_mouse = 1,
     sensitivity = 0,
 	},
@@ -29,8 +30,6 @@ hl.config({
 
 hl.config({
 	misc = {
-		force_default_wallpaper = -1,
-    disable_hyprland_logo = false,
     disable_splash_rendering = true,
 	},
 })
