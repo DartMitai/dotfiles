@@ -1,6 +1,7 @@
 # env.nu
 #
 # Installed by:
+
 # version = "0.115.1"
 #
 # Previously, environment variables were typically configured in `env.nu`.

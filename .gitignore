@@ -8,6 +8,7 @@ cachyos-hello.json
 cef_user_data/
 Code/
 Code - OSS/
+cef_user_data/
 dconf/
 Docker Desktop/
 enchant/
@@ -44,7 +45,6 @@ QtProject.conf
 user-dirs.dirs
 user-dirs.locale
 .gsd-keyboard.settings-ported
-nvim/plugin/
 messages.json*
 fish/
 nushell/history.txt

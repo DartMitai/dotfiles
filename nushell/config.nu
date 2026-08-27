@@ -32,3 +32,6 @@ $env.path ++= ["/home/mitai/Soft/android_sdk//platform-tools"]
 $env.path ++= ["/home/mitai/Soft/android_sdk/cmdline-tools/latest/bin"]
 # Google-Chrome Browser
 $env.CHROME_EXECUTABLE = '/opt/google/chrome/google-chrome'
+
+#alias webcam = scrcpy --select-usb --video-source=camera --camera-facing=back --camera-size=1280x720 --orientation=flip0 --v4l2-sink=/dev/video0 --no-audio --no-window
+
