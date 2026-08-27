@@ -1,0 +1,53 @@
+.vscode/
+abrt/
+Android Open Source Project/
+autostart/
+cachyos/
+cachyos-hello.json
+cef_user_data/
+Code/
+Code - OSS/
+dconf/
+Docker Desktop/
+enchant/
+eog/
+evolution/
+flutter/
+GitHub Desktop/
+gnome-boxes/
+gnome-session/
+goa-1.0/
+Google/
+google-chrome/
+gtk-3.0/
+gtk-4.0/
+ibus/
+librewolf/
+JetBrains/
+jxbrowser/
+menus/
+nautilus/
+pulse/
+shelly/
+simple-scan/
+systemd/
+TabNine/
+totem/
+TgWsProxy/
+org.gnome.Ptyxis/
+dleyna-renderer-service.conf
+gnome-initial-setup-done
+mimeapps.list
+pavucontrol.ini
+QtProject.conf
+user-dirs.dirs
+user-dirs.locale
+.gsd-keyboard.settings-ported
+nvim/plugin/
+messages.json*
+fish/fish_variables
+fish
+yandex-browser
+xdg-terminals.list
+monitors.xml
+hypr
