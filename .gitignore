@@ -2,6 +2,7 @@
 abrt/
 Android Open Source Project/
 autostart/
+cmus/
 cachyos/
 cachyos-hello.json
 cef_user_data/
@@ -45,8 +46,8 @@ user-dirs.locale
 .gsd-keyboard.settings-ported
 nvim/plugin/
 messages.json*
-fish/fish_variables
-fish
+fish/
+nushell/history.txt
 yandex-browser
 xdg-terminals.list
 monitors.xml
