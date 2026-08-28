@@ -17,21 +17,3 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 
-# Отключить приветственное сообщение
-$env.config.show_banner = false
-
-# Редактор для конфига
-$env.EDITOR = 'nvim'
-
-# PATH
-$env.path ++= ["/home/mitai/.pub-cache/bin/"]
-$env.path ++= ["/home/mitai/Soft/flutter/bin"]
-$env.ANDROID_HOME = '/home/mitai/Soft/android_sdk'
-$env.path ++= ["/home/mitai/Soft/android_sdk/emulator"]
-$env.path ++= ["/home/mitai/Soft/android_sdk//platform-tools"]
-$env.path ++= ["/home/mitai/Soft/android_sdk/cmdline-tools/latest/bin"]
-# Google-Chrome Browser
-$env.CHROME_EXECUTABLE = '/opt/google/chrome/google-chrome'
-
-#alias webcam = scrcpy --select-usb --video-source=camera --camera-facing=back --camera-size=1280x720 --orientation=flip0 --v4l2-sink=/dev/video0 --no-audio --no-window
-

@@ -17,3 +17,27 @@
 #
 # You can remove these comments if you want or leave
 # them for future reference.
+$env.COLORTERM = "truecolor"
+# Отключить приветственное сообщение
+$env.config.show_banner = false
+
+# Отключить правую подсказку
+$env.PROMPT_COMMAND_RIGHT = ""
+
+# Редактор для конфига
+$env.EDITOR = 'nvim'
+
+# PATH
+$env.path ++= ["/home/mitai/.pub-cache/bin/"]
+$env.path ++= ["/home/mitai/Soft/flutter/bin"]
+$env.ANDROID_HOME = '/home/mitai/Soft/android_sdk'
+$env.path ++= ["/home/mitai/Soft/android_sdk/emulator"]
+$env.path ++= ["/home/mitai/Soft/android_sdk//platform-tools"]
+$env.path ++= ["/home/mitai/Soft/android_sdk/cmdline-tools/latest/bin"]
+# Google-Chrome Browser
+$env.CHROME_EXECUTABLE = '/opt/google/chrome/google-chrome'
+
+# Cargo
+$env.path ++= ["/home/mitai/.cargo/bin"]
+
+#alias webcam = scrcpy --select-usb --video-source=camera --camera-facing=back --camera-size=1280x720 --orientation=flip0 --v4l2-sink=/dev/video0 --no-audio --no-window

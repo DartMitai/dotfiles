@@ -1,6 +1,6 @@
-require 'nvim-treesitter.configs'.setup {
-  ensure_installed      = { 'dart' },
-  ignore_install        = { 'c', 'lua', },
+require ('nvim-treesitter').setup {
+  install               = { 'dart' },
+  ignore_install        = {},
   highlight             = { enable = true },
   incremental_selection = { enable = true },
   textobjects           = { enable = true },

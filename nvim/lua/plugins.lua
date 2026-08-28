@@ -94,6 +94,7 @@ require('lazy').setup({
     -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',
+        lazy = false,
         build = ':TSUpdate',
         config = function()
             require('plugins.treesitter')
@@ -141,13 +142,20 @@ require('lazy').setup({
     },
 
     -- BLINK
+
+    { 'saghen/blink.lib' },
+
     {
         'saghen/blink.cmp',
-        -- optional: provides snippets for the snippet source
-        dependencies = 'rafamadriz/friendly-snippets',
-
-        -- use a release tag to download pre-built binaries
-        version = '1.*',
+        dependencies = {
+            'saghen/blink.lib',
+            'rafamadriz/friendly-snippets',
+        },
+        build = function()
+            -- build the fuzzy matcher, optionally add a timeout to `pwait(timeout_ms)`
+            -- you can use `gb` in `:Lazy` to rebuild the plugin as needed
+            require('blink.cmp').build():pwait(60000)
+        end,
 
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
@@ -162,7 +170,7 @@ require('lazy').setup({
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer' },
             },
-            fuzzy = { implementation = "prefer_rust_with_warning" },
+            fuzzy = { implementation = "rust" },
 
             snippets = { preset = 'default' },
 
@@ -174,10 +182,11 @@ require('lazy').setup({
     -- AUTOPAIRS
     {
         'saghen/blink.pairs',
-        version = '*', -- (recommended) only required with prebuilt binaries
+        dependencies = 'saghen/blink.lib',
 
-        -- download prebuilt binaries from github releases
-        dependencies = 'saghen/blink.download',
+        version = '*',
+
+        build = function() require('blink.pairs').build():pwait(60000) end,
 
         --- @module 'blink.pairs'
         --- @type blink.pairs.Config
