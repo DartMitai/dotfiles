@@ -16,6 +16,7 @@
 # You can also pretty-print and page through the documentation for configuration
 # options using:
 #     config nu --doc | nu-highlight | less -R
+<<<<<<< HEAD
 # Start Hyprlands
 if $nu.is-login and $env.DISPLAY? == null and $env.XDG_VTNR? == "1" {
   exec start-hyprland
