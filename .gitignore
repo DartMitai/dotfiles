@@ -51,4 +51,12 @@ nushell/history.txt
 yandex-browser
 xdg-terminals.list
 monitors.xml
-hypr
+baloofileinformationrc
+btop/
+dolphinrc
+kdeglobals
+micro/
+satty/
+session/
+trashrc
+nvim/lazy-lock.json
