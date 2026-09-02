@@ -46,4 +46,7 @@ $env.path ++= ["/home/mitai/.cargo/bin"]
 #alias webcam = scrcpy --select-usb --video-source=camera --camera-facing=back --camera-size=1280x720 --orientation=flip0 --v4l2-sink=/dev/video0 --no-audio --no-window
 
 # Cargo Linker
-let-env RUSTFLAGS = "-C linker=gcc"
+#let-env RUSTFLAGS = "-C linker=gcc"
+
+#Ssh-key
+keychain --eval --quiet github | lines | where not ($it | is-empty) | parse "{k}={v};{_}" | transpose --header-row -d | str trim -c "\"" | load-env
