@@ -27,6 +27,9 @@ $env.PROMPT_COMMAND_RIGHT = ""
 # Редактор для конфига
 $env.EDITOR = 'nvim'
 
+# Locale
+$env.LANG = 'ru_RU.UTF-8'
+
 # PATH
 $env.path ++= ["/home/mitai/.pub-cache/bin/"]
 $env.path ++= ["/home/mitai/Soft/flutter/bin"]
