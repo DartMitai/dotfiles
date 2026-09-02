@@ -1,5 +1,5 @@
 # This is the configuration file for Ghostty.
-font-family = JetBrains Mono
+font-family = JetBrainsMono Nerd Font Mono
 font-size = 13
 background-opacity = 0.8
 theme = light:/usr/share/ghostty/themes/TokyoNight Day,dark:/usr/share/ghostty/themes/TokyoNight
