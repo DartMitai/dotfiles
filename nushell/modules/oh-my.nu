@@ -308,7 +308,7 @@ def git_left_prompt [gs os] {
 
   let GIT_BG = "#C4A000"
   let GIT_FG = "#000000"
-  let TERM_BG = "#0C0C0C"
+  let TERM_BG = "ansi default"
 
   let repo_status = (get_repo_status $gs $os)
 
