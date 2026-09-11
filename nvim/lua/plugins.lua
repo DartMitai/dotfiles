@@ -13,7 +13,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-
     -- Color Theme
     {
         "folke/tokyonight.nvim",
@@ -213,9 +212,4 @@ require('lazy').setup({
             debug = false,
         },
     }
-
-    -- Codeium
-    -- {
-    --     'Exafunction/codeium.vim'
-    -- }
 })

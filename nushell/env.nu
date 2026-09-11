@@ -51,5 +51,8 @@ $env.path ++= ["/home/mitai/.cargo/bin"]
 # Cargo Linker
 $env.RUSTFLAGS = "-C linker=gcc"
 
+# Jiri
+$env.path ++= ["/home/mitai/fuchsia/.jiri_root/bin"]
+
 #Ssh-key
 keychain --eval --quiet github | lines | where not ($it | is-empty) | parse "{k}={v};{_}" | transpose --header-row -d | str trim -c "\"" | load-env

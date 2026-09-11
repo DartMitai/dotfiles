@@ -16,7 +16,13 @@
 # You can also pretty-print and page through the documentation for configuration
 # options using:
 #     config nu --doc | nu-highlight | less -R
+
 # Start Hyprlands
 if $nu.is-login and $env.DISPLAY? == null and $env.XDG_VTNR? == "1" {
   exec start-hyprland
 }
+
+# Prompt gstat
+use ~/.config/nushell/modules/oh-my.nu git_prompt
+$env.PROMPT_COMMAND = { (git_prompt).left_prompt }
+$env.PROMPT_INDICATOR = " "
