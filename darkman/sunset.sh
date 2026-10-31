@@ -1,21 +1,39 @@
 #!/bin/sh
-export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
-for d in "$XDG_RUNTIME_DIR/hypr"/*/ /tmp/hypr/$USER/*/; do
-    [ -S "$d/.socket.sock" ] && {
-        export HYPRLAND_INSTANCE_SIGNATURE="$(basename "$d")"
-        break
-    }
+# Ждём, пока Hyprland создаст свой инстанс (до 60 секунд)
+i=0
+sig=""
+while [ "$i" -lt 120 ]; do
+    sig="$(ls "$XDG_RUNTIME_DIR/hypr" 2>/dev/null | head -n 1)"
+    if [ -n "$sig" ]; then break; fi
+    sleep 0.5
+    i=$((i + 1))
 done
+if [ -z "$sig" ]; then
+    exit 1
+fi
+export HYPRLAND_INSTANCE_SIGNATURE="$sig"
+
+# Если WAYLAND_DISPLAY не задан — находим сокет композитора сами
+if [ -z "$WAYLAND_DISPLAY" ]; then
+    wd="$(ls "$XDG_RUNTIME_DIR" 2>/dev/null | grep -E '^wayland-[0-9]+$' | head -n 1)"
+    if [ -n "$wd" ]; then
+        export WAYLAND_DISPLAY="$wd"
+    fi
+fi
+
+# Перезапускаем демон с нужными параметрами напрямую
+pkill -x hyprsunset 2>/dev/null
+sleep 0.5
 
 case "$1" in
     dark)
-        hyprctl hyprsunset temperature 2300
-        hyprctl hyprsunset gamma 80
+        nohup hyprsunset -t 1800 -g 80 >/dev/null 2>&1 &
         ;;
     light)
-        hyprctl hyprsunset identity
-        hyprctl hyprsunset gamma 100
+        nohup hyprsunset -i >/dev/null 2>&1 &
+        ;;
+    *)
+        exit 0
         ;;
 esac
-
