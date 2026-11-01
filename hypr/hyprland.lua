@@ -1,5 +1,10 @@
 require("settings.keybinds")
 
+hl.on("hyprland.start", function ()
+	  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd("hyprsunset")
+end)
+
 hl.monitor({
   output = "HDMI-A-1",
   mode = "2560x1440@75",
@@ -13,7 +18,6 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 end)
 
-hl.env("XCURSOR_SIZE", "24")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
@@ -31,12 +35,17 @@ hl.config({
 hl.config({
 	misc = {
     disable_splash_rendering = true,
+		disable_hyprland_logo = false,
+		force_default_wallpaper = 0
 	},
 })
 
 hl.config({
 	cursor = {
 		inactive_timeout = 10.0,
+		no_hardware_cursors = true,
+		enable_hyprcursor = true,
+		sync_gsettings_theme = true
 	},
 })
 
